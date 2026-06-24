@@ -1,0 +1,46 @@
+{
+  "formula_1": {
+    "strategy_comparison": {
+      "k": 5,
+      "full": {
+        "accuracy": 0.5,
+        "label": "Full schema"
+      },
+      "bm25": {
+        "accuracy": 0.485,
+        "label": "BM25-only"
+      },
+      "embedding": {
+        "accuracy": 0.53,
+        "label": "Embedding-only"
+      },
+      "hybrid": {
+        "accuracy": 0.545,
+        "label": "Hybrid (RRF)"
+      }
+    },
+    "k_sweep_generation_accuracy": {
+      "3": 0.47,
+      "5": 0.545,
+      "7": 0.47
+    },
+    "k_sweep_retrieval_recall": {
+      "3": 0.53,
+      "5": 0.71,
+      "7": 0.83
+    },
+    "token_cost_reduction": {
+      "full_schema_tokens": 2539,
+      "avg_retrieved_tokens_k5": 1103.9,
+      "reduction_pct": 0.565
+    },
+    "n_questions": 66,
+    "n_tables": 13
+  },
+  "debit_card_specializing": {
+    "accuracy": 0.433,
+    "n_questions": 30,
+    "n_tables": 5,
+    "note": "No retrieval ablation run on this DB -- full schema only, used to demonstrate Stages A-C (core agent + self-correction + eval harness)."
+  }
+}

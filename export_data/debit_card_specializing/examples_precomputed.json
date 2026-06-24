@@ -1,0 +1,99 @@
+[
+  {
+    "question_id": 1483,
+    "question": "How much did customer 6 consume in total between August and November 2013?",
+    "evidence": "Between August And November 2013 refers to Between 201308 And 201311; The first 4 strings of the Date values in the yearmonth table can represent year; The 5th and 6th string of the date can refer to month.",
+    "gold_sql": "SELECT SUM(Consumption) FROM yearmonth WHERE CustomerID = 6 AND Date BETWEEN '201308' AND '201311'",
+    "gold_tables": [
+      "yearmonth"
+    ],
+    "gold_result": [
+      [
+        1224.96
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "customers",
+          "gasstations",
+          "products",
+          "transactions_1k",
+          "yearmonth"
+        ],
+        "predicted_sql": "SELECT SUM(Consumption) FROM yearmonth WHERE CustomerID = 6 AND Date BETWEEN '201308' AND '201311'",
+        "predicted_result": [
+          [
+            1224.96
+          ]
+        ],
+        "correct": true
+      }
+    }
+  },
+  {
+    "question_id": 1490,
+    "question": "How many percent of LAM customer consumed more than 46.73?",
+    "evidence": "Percentage of LAM customer consumed more than 46.73 = (Total no. of LAM customers who consumed more than 46.73 / Total no. of LAM customers) * 100.",
+    "gold_sql": "SELECT CAST(SUM(IIF(T2.Consumption > 46.73, 1, 0)) AS FLOAT) * 100 / COUNT(T1.CustomerID) FROM customers AS T1 INNER JOIN yearmonth AS T2 ON T1.CustomerID = T2.CustomerID WHERE T1.Segment = 'LAM'",
+    "gold_tables": [
+      "customers",
+      "yearmonth"
+    ],
+    "gold_result": [
+      [
+        98.5267932135058
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "customers",
+          "gasstations",
+          "products",
+          "transactions_1k",
+          "yearmonth"
+        ],
+        "predicted_sql": "SELECT CAST(SUM(CASE WHEN t.Consumption > 46.73 THEN 1 ELSE 0 END) AS REAL) * 100 / COUNT(DISTINCT c.CustomerID)\nFROM customers c\nJOIN yearmonth t ON c.CustomerID = t.CustomerID\nWHERE c.Segment = 'LAM'",
+        "predicted_result": [
+          [
+            1624.2869011354196
+          ]
+        ],
+        "correct": false
+      }
+    }
+  },
+  {
+    "question_id": 1471,
+    "question": "What is the ratio of customers who pay in EUR against customers who pay in CZK?",
+    "evidence": "ratio of customers who pay in EUR against customers who pay in CZK = count(Currency = 'EUR') / count(Currency = 'CZK').",
+    "gold_sql": "SELECT CAST(SUM(IIF(Currency = 'EUR', 1, 0)) AS FLOAT) / SUM(IIF(Currency = 'CZK', 1, 0)) AS ratio FROM customers",
+    "gold_tables": [
+      "customers"
+    ],
+    "gold_result": [
+      [
+        0.06572769953051644
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "customers",
+          "gasstations",
+          "products",
+          "transactions_1k",
+          "yearmonth"
+        ],
+        "predicted_sql": "SELECT CAST(SUM(CASE WHEN Currency = 'EUR' THEN 1 ELSE 0 END) AS REAL) / SUM(CASE WHEN Currency = 'CZK' THEN 1 ELSE 0 END) FROM customers",
+        "predicted_result": [
+          [
+            0.06572769953051644
+          ]
+        ],
+        "correct": true
+      }
+    }
+  }
+]

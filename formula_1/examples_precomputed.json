@@ -1,0 +1,525 @@
+[
+  {
+    "question_id": 850,
+    "question": "Please give the name of the race held on the circuits in Germany.",
+    "evidence": "Germany is a name of country;",
+    "gold_sql": "SELECT DISTINCT T2.name FROM circuits AS T1 INNER JOIN races AS T2 ON T2.circuitID = T1.circuitId WHERE T1.country = 'Germany'",
+    "gold_tables": [
+      "circuits",
+      "races"
+    ],
+    "gold_result": [
+      [
+        "German Grand Prix"
+      ],
+      [
+        "European Grand Prix"
+      ],
+      [
+        "Luxembourg Grand Prix"
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "circuits",
+          "constructorResults",
+          "constructorStandings",
+          "constructors",
+          "driverStandings",
+          "drivers",
+          "lapTimes",
+          "pitStops",
+          "qualifying",
+          "races",
+          "results",
+          "seasons",
+          "status"
+        ],
+        "predicted_sql": "SELECT DISTINCT r.name \nFROM races r \nJOIN circuits c ON r.circuitId = c.circuitId \nWHERE c.country = 'Germany'",
+        "predicted_result": [
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "Luxembourg Grand Prix"
+          ]
+        ],
+        "correct": true
+      },
+      "bm25": {
+        "retrieved_tables": [
+          "circuits",
+          "constructorResults",
+          "constructorStandings",
+          "constructors",
+          "races"
+        ],
+        "predicted_sql": "SELECT DISTINCT r.name \nFROM races r \nJOIN circuits c ON r.circuitId = c.circuitId \nWHERE c.country = 'Germany'",
+        "predicted_result": [
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "Luxembourg Grand Prix"
+          ]
+        ],
+        "correct": true
+      },
+      "embedding": {
+        "retrieved_tables": [
+          "circuits",
+          "driverStandings",
+          "drivers",
+          "pitStops",
+          "races"
+        ],
+        "predicted_sql": "SELECT r.name FROM races r JOIN circuits c ON r.circuitId = c.circuitId WHERE c.country = 'Germany'",
+        "predicted_result": [
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "Luxembourg Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "Luxembourg Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ],
+          [
+            "German Grand Prix"
+          ]
+        ],
+        "correct": false
+      },
+      "hybrid": {
+        "retrieved_tables": [
+          "circuits",
+          "constructors",
+          "driverStandings",
+          "drivers",
+          "races"
+        ],
+        "predicted_sql": "SELECT DISTINCT r.name FROM races r JOIN circuits c ON r.circuitId = c.circuitId WHERE c.country = 'Germany'",
+        "predicted_result": [
+          [
+            "German Grand Prix"
+          ],
+          [
+            "European Grand Prix"
+          ],
+          [
+            "Luxembourg Grand Prix"
+          ]
+        ],
+        "correct": true
+      }
+    }
+  },
+  {
+    "question_id": 904,
+    "question": "State the race and year of race in which Michael Schumacher had his fastest lap.",
+    "evidence": "fastest lap refers to min(milliseconds); Alex Yoong refers to the full name of the driver; Full name of the driver refers to drivers.forename and drivers.surname;",
+    "gold_sql": "SELECT T1.name, T1.year FROM races AS T1 INNER JOIN lapTimes AS T2 ON T2.raceId = T1.raceId INNER JOIN drivers AS T3 ON T3.driverId = T2.driverId WHERE T3.forename = 'Michael' AND T3.surname = 'Schumacher' ORDER BY T2.milliseconds ASC LIMIT 1",
+    "gold_tables": [
+      "drivers",
+      "lapTimes",
+      "races"
+    ],
+    "gold_result": [
+      [
+        "Austrian Grand Prix",
+        2003
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "circuits",
+          "constructorResults",
+          "constructorStandings",
+          "constructors",
+          "driverStandings",
+          "drivers",
+          "lapTimes",
+          "pitStops",
+          "qualifying",
+          "races",
+          "results",
+          "seasons",
+          "status"
+        ],
+        "predicted_sql": "SELECT r.name, r.year \nFROM results res\nJOIN races r ON res.raceId = r.raceId\nJOIN drivers d ON res.driverId = d.driverId\nWHERE d.forename = 'Michael' AND d.surname = 'Schumacher'\nORDER BY res.milliseconds ASC\nLIMIT 1",
+        "predicted_result": [
+          [
+            "Hungarian Grand Prix",
+            2006
+          ]
+        ],
+        "correct": false
+      },
+      "bm25": {
+        "retrieved_tables": [
+          "circuits",
+          "lapTimes",
+          "pitStops",
+          "races",
+          "seasons"
+        ],
+        "predicted_sql": "SELECT r.name, r.year\nFROM lapTimes lt\nJOIN races r ON lt.raceId = r.raceId\nJOIN drivers d ON lt.driverId = d.driverId\nWHERE d.forename = 'Michael' AND d.surname = 'Schumacher'\nORDER BY lt.milliseconds ASC\nLIMIT 1",
+        "predicted_result": [
+          [
+            "Austrian Grand Prix",
+            2003
+          ]
+        ],
+        "correct": true
+      },
+      "embedding": {
+        "retrieved_tables": [
+          "lapTimes",
+          "pitStops",
+          "qualifying",
+          "races",
+          "results"
+        ],
+        "predicted_sql": "SELECT r.name, r.year\nFROM races r\nJOIN lapTimes lt ON r.raceId = lt.raceId\nJOIN drivers d ON lt.driverId = d.driverId\nWHERE d.forename = 'Michael' AND d.surname = 'Schumacher'\nORDER BY lt.milliseconds ASC\nLIMIT 1",
+        "predicted_result": [
+          [
+            "Austrian Grand Prix",
+            2003
+          ]
+        ],
+        "correct": true
+      },
+      "hybrid": {
+        "retrieved_tables": [
+          "lapTimes",
+          "pitStops",
+          "races",
+          "results",
+          "seasons"
+        ],
+        "predicted_sql": "SELECT r.name, r.year\nFROM races r\nJOIN results res ON r.raceId = res.raceId\nJOIN drivers d ON res.driverId = d.driverId\nWHERE d.forename = 'Michael' AND d.surname = 'Schumacher'\nAND res.milliseconds = (\n    SELECT MIN(res2.milliseconds)\n    FROM results res2\n    JOIN drivers d2 ON res2.driverId = d2.driverId\n    WHERE d2.forename = 'Michael' AND d2.surname = 'Schumacher'\n    AND res2.milliseconds IS NOT NULL\n)",
+        "predicted_result": [
+          [
+            "Belgian Grand Prix",
+            2001
+          ]
+        ],
+        "correct": false
+      }
+    }
+  },
+  {
+    "question_id": 954,
+    "question": "Please calculate the race completion percentage of Japanese drivers from 2007 to 2009.",
+    "evidence": "from 2007 to 2009 refers to year between 2007 and 2009; race completion refers to time is not null; percentage = Divide(COUNT(DriverID where time is not null and year between 2007 and 2009),Count (DriverID where year between 2007 and 2009))*100; ",
+    "gold_sql": "SELECT CAST(SUM(IIF(T1.time IS NOT NULL, 1, 0)) AS REAL) * 100 / COUNT(T1.raceId) FROM results AS T1 INNER JOIN races AS T2 on T1.raceId = T2.raceId INNER JOIN drivers AS T3 on T1.driverId = T3.driverId WHERE T3.nationality = 'Japanese' AND T2.year BETWEEN 2007 AND 2009",
+    "gold_tables": [
+      "drivers",
+      "races",
+      "results"
+    ],
+    "gold_result": [
+      [
+        29.032258064516128
+      ]
+    ],
+    "strategies": {
+      "full": {
+        "retrieved_tables": [
+          "circuits",
+          "constructorResults",
+          "constructorStandings",
+          "constructors",
+          "driverStandings",
+          "drivers",
+          "lapTimes",
+          "pitStops",
+          "qualifying",
+          "races",
+          "results",
+          "seasons",
+          "status"
+        ],
+        "predicted_sql": "SELECT CAST(COUNT(CASE WHEN r.time IS NOT NULL THEN 1 END) AS REAL) * 100 / COUNT(r.resultId) AS completion_percentage\nFROM results r\nJOIN drivers d ON r.driverId = d.driverId\nJOIN races ra ON r.raceId = ra.raceId\nWHERE d.nationality = 'Japanese'\nAND ra.year BETWEEN 2007 AND 2009",
+        "predicted_result": [
+          [
+            29.032258064516128
+          ]
+        ],
+        "correct": true
+      },
+      "bm25": {
+        "retrieved_tables": [
+          "driverStandings",
+          "drivers",
+          "lapTimes",
+          "races",
+          "status"
+        ],
+        "predicted_sql": "SELECT CAST(COUNT(CASE WHEN lt.time IS NOT NULL THEN lt.\"driverId\" END) AS REAL) * 100 / COUNT(lt.\"driverId\")\nFROM lapTimes lt\nJOIN races r ON lt.\"raceId\" = r.\"raceId\"\nJOIN drivers d ON lt.\"driverId\" = d.\"driverId\"\nWHERE d.nationality = 'Japanese'\nAND r.year BETWEEN 2007 AND 2009",
+        "predicted_result": [
+          [
+            100.0
+          ]
+        ],
+        "correct": false
+      },
+      "embedding": {
+        "retrieved_tables": [
+          "constructorResults",
+          "driverStandings",
+          "drivers",
+          "races",
+          "results"
+        ],
+        "predicted_sql": "SELECT CAST(COUNT(CASE WHEN res.time IS NOT NULL THEN 1 END) AS REAL) * 100 / COUNT(*) AS completion_percentage\nFROM results res\nJOIN races ra ON res.raceId = ra.raceId\nJOIN drivers d ON res.driverId = d.driverId\nWHERE d.nationality = 'Japanese'\nAND ra.year BETWEEN 2007 AND 2009",
+        "predicted_result": [
+          [
+            29.032258064516128
+          ]
+        ],
+        "correct": true
+      },
+      "hybrid": {
+        "retrieved_tables": [
+          "constructorResults",
+          "driverStandings",
+          "drivers",
+          "lapTimes",
+          "races"
+        ],
+        "predicted_sql": "SELECT CAST(COUNT(CASE WHEN lt.time IS NOT NULL THEN 1 END) AS REAL) * 100 / COUNT(lt.\"driverId\") AS completion_percentage\nFROM lapTimes lt\nJOIN drivers d ON lt.\"driverId\" = d.\"driverId\"\nJOIN races r ON lt.\"raceId\" = r.\"raceId\"\nWHERE d.nationality = 'Japanese'\nAND r.year BETWEEN 2007 AND 2009",
+        "predicted_result": [
+          [
+            100.0
+          ]
+        ],
+        "correct": false
+      }
+    }
+  }
+]
